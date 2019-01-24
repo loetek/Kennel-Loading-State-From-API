@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import AnimalList from "./animal/AnimalList";
 import LocationList from "./location/LocationList";
 import EmployeeList from "./employee/EmployeeList";
+import OwnerList from "./owner/OwnerList";
 import AnimalManager from "../modules/AnimalManager";
 import LocationManager from "../modules/LocationManager";
 import EmployeeManager from "../modules/EmployeeManager";
@@ -15,7 +16,8 @@ export default class ApplicationViews extends Component {
   state = {
     animals: [],
     employees: [],
-    locations: []
+    locations: [],
+    owners: []
   };
 
   // Check if credentials are in local storage
@@ -139,6 +141,17 @@ export default class ApplicationViews extends Component {
             }
           }}
         />
+        <Route
+        exact
+        path="/owner"
+        render={props => {
+          return (
+            <OwnerList
+              owners={this.state.owners}
+            />
+          );
+        }}
+      />
       </React.Fragment>
     );
   }
